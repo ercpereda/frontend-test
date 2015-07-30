@@ -1,0 +1,29 @@
+doctype html
+
+html(ng-app='erEventApp')
+  head
+    title
+      meta(name="viewport" content="width=device-width, initial-scale=1.0")
+      meta(charset='utf-8')
+      link(href='app.less' type='text/css' rel='stylesheet/less')
+
+body
+
+  // JS from Bower Components
+  script(src='bower_components/less.js/dist/less-1.6.2.js' data-content=false)
+  script(src="bower_components/jquery/jquery.js")
+  script(src="bower_components/underscore/underscore.js")
+  script(src="bower_components/moment/moment.js")
+  script(src="bower_components/angular/angular.js")
+  script(src="bower_components/angular-route/angular-route.js")
+  script(src="bower_components/angular-animate/angular-animate.js")
+  script(src="bower_components/angular-resource/angular-resource.js")
+  script(src="bower_components/angular-ui-utils/ui-utils.js")
+
+  // Main App JS
+  script(src='app.js')
+
+  div
+    div#content.container
+      div.row
+        ng-view
