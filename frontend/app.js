@@ -1,4 +1,4 @@
-angular.module('eventsManager', ['ui.utils','ngRoute','ngAnimate'])
+angular.module('erEventApp', ['ui.utils','ngRoute','ngAnimate'])
     .config(function($routeProvider) {
 
     /* Add New Routes Above */
