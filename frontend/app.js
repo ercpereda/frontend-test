@@ -4,8 +4,9 @@ var erEventApp = angular.module('erEventApp', ['ui.utils','ngRoute','ngAnimate',
     $routeProvider.when('/events', {
        templateUrl: '/templates/er-event-list.html'
     });
-    $routeProvider.when('/events/:id', {
-      templateUrl: '/templates/er-event-details.html'
+    $routeProvider.when('/event/:id', {
+      templateUrl: '/templates/er-event-details.html',
+      controller: 'erEventDetailsController'
     });
     $routeProvider.otherwise({redirectTo:'/events'});
 

@@ -9,6 +9,11 @@ erEventApp
         templateUrl: '/templates/directives/er-event.html',
         scope: {
           event: '='
+        },
+        controller: function($scope) {
+            $scope.details = function (id) {
+                console.log(id);
+            }
         }
       }
     }
