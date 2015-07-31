@@ -1,4 +1,4 @@
-var erEventApp = angular.module('erEventApp', ['ui.utils','ngRoute','ngAnimate'])
+var erEventApp = angular.module('erEventApp', ['ui.utils','ngRoute','ngAnimate', 'ngResource'])
     .config(function($routeProvider) {
 
     $routeProvider.when('/home', {
