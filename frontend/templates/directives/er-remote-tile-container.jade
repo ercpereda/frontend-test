@@ -1,0 +1,14 @@
+div
+  div(ng-show='showLoading')
+    div(data-role="preloader" data-type="ring" style='margin: auto')
+  div.notify.alert(ng-show='showError' style='margin: auto')
+    span.notify-icon.mif-warning
+    span.notify-title Error
+    span.notify-text Something happen trying to fetch the events
+  div.notify.info(ng-show='showNoElements' style='margin: auto')
+    span.notify-icon.mif-notification
+    span.notify-title No Elements
+    span.notify-text No exist elements to show
+  div.tile-container(ng-show='showElements')
+    div(ng-repeat='element in elements')
+        div(ng-transclude)

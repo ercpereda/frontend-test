@@ -28,12 +28,14 @@ body(class='tile-area-scheme-{{backgroundColor}}')
   // Directives
   script(src='directives/er-color-palette-directive.js')
   script(src='directives/er-event-directive.js')
+  script(src='directives/er-remote-tile-container-directive.js')
 
   // Services
   script(src='services/er-event-service.js')
 
   // Controllers
   script(src='controllers/er-event-list-controller.js')
+  script(src='controllers/er-remote-tile-container-controller.js')
 
   header.app-bar.fixed-top.nave(data-role='app-bar')
     a.app-bar-element(ng-show='false')
