@@ -2,18 +2,19 @@ doctype html
 
 html(ng-app='erEventApp')
   head
-    title
-      meta(name="viewport" content="width=device-width, initial-scale=1.0")
-      meta(charset='utf-8')
-      link(href='app.less' type='text/css' rel='stylesheet/less')
+    title Hello world
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    meta(charset='utf-8')
+    //link(href='app.less' type='text/css' rel='stylesheet/less')
+    link(rel='stylesheet' href='bower_components/metro/build/css/metro.css')
+    link(rel='stylesheet' href='bower_components/metro/build/css/metro-icons.css')
 
 body
 
   // JS from Bower Components
   script(src='bower_components/less.js/dist/less-1.6.2.js' data-content=false)
   script(src="bower_components/jquery/jquery.js")
-  script(src="bower_components/underscore/underscore.js")
-  script(src="bower_components/moment/moment.js")
+  script(src="bower_components/metro/build/js/metro.js")
   script(src="bower_components/angular/angular.js")
   script(src="bower_components/angular-route/angular-route.js")
   script(src="bower_components/angular-animate/angular-animate.js")
@@ -23,6 +24,15 @@ body
   // Main App JS
   script(src='app.js')
 
+  div.app-bar.fixed-top.darcula(data-role='app-bar')
+    a.app-bar-element.margin-10.place-right
+      span(data-role='hint' data-hint-background='bg-green' data-hint-color='fg-white'
+        data-hint-mode='2' data-hint='Change | background color')
+        span#toggle-tiles-dropdown.mif-paint.mif-2x.ani-hover-float.mif-ani-fast
+      div.app-bar-drop-container.place-right(data-role='dropdown' data-toggle-element='#toggle-tiles-dropdown'
+            data-no-close='false' style='width: 324px')
+        div.tile-container.bg-white()
+          div.class.tile-small(bg-color='dark')
   div
     div#content.container
       div.row
