@@ -1,16 +1,15 @@
 div.flex-grid
   div.row.padding20
-    div.cell.colspan8
-      er-remote-tile-container
-        er-event(event='element')
-    div.cell.colspan4
+    div.cell.colspan8(ng-controller='erRemoteTileContainerController')
+      er-remote-tile-container(
+            show-elements='showElements', show-error='showError', show-no-element='showNoElement',
+            show-loading='showLoading', elements='elements')
+        er-event(ng-repeat='event in elements' event='event')
+    div.cell.colspan4(ng-controller='erRemoteTileContainerController')
       h1.text-light
         span.mif-event-available.mif-2x Today's Highlight
       hr.fat.bg-white
-      div.tile-container
-        div.tile-wide.bg-crimson(data-role='tile')
-          div.tile-content.slide-left-2
-            div.slide
-              h3 Hello world
-            div.slide-over.bg-blue
-              h3 Hello world
+      er-remote-tile-container(
+            show-elements='showElements', show-error='showError', show-no-element='showNoElement',
+            show-loading='showLoading', elements='elements')
+        er-highlight(ng-repeat='event in elements' event='event')

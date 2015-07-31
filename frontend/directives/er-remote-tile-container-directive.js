@@ -5,12 +5,16 @@ erEventApp
         function() {
             return {
                 restrict: 'E',
-                replace: true,
+                //replace: true,
                 templateUrl: '/templates/directives/er-remote-tile-container.html',
                 transclude: true,
                 scope: {
-                },
-                controller: 'erRemoteTileContainerController'
+                    showElements: '=',
+                    showError: '=',
+                    showNoElement: '=',
+                    showLoading: '=',
+                    elements: '='
+                }
             }
         }
 );
