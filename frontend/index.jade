@@ -31,12 +31,18 @@ body(class='tile-area-scheme-{{backgroundColor}}')
   // Controllers
   script(src='controllers/er-event-list-controller.js')
 
-  div.app-bar.fixed-top(data-role='app-bar')
-    a.app-bar-element.padding-10.place-right
+  header.app-bar.fixed-top.nave(data-role='app-bar')
+    a.app-bar-element(ng-show='false')
+      span(data-role='hint' data-hint-background='bg-green' data-hint-color='fg-white'
+              data-hint-position='right' data-hint='Go | back')
+        span.mif-arrow-left.mif-3x
+    div.app-bar-divider(ng-show='false')
+    a.app-bar-element.branding Events
+    a.app-bar-element.place-right
       span(data-role='hint' data-hint-background='bg-green' data-hint-color='fg-white'
             data-hint-position='left' data-hint='Change | background color')
-        span#toggle-tiles-dropdown.mif-paint.mif-2x.ani-hover-float.mif-ani-fast
-      div.app-bar-drop-container.place-right(data-role='dropdown' data-toggle-element='#toggle-tiles-dropdown'
+        span#color-palette-dropdown.mif-paint.mif-3x.ani-hover-float.mif-ani-fast
+      div.app-bar-drop-container.place-right(data-role='dropdown' data-toggle-element='#color-palette-dropdown'
             data-no-close='false' style='width: 324px')
         er-color-palette(enter='previewBackgroundColor(color)' leave='resetBackgroundColor()' click='changeBackgroundColor(color)')
   div#content.container.fg-white
