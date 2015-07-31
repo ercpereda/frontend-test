@@ -1,7 +1,10 @@
 var erEventApp = angular.module('erEventApp', ['ui.utils','ngRoute','ngAnimate'])
     .config(function($routeProvider) {
 
-    /* Add New Routes Above */
+    $routeProvider.when('/home', {
+       templateUrl: '/templates/er-event-list.html',
+       controller: 'erEventListController'
+    });
     $routeProvider.otherwise({redirectTo:'/home'});
 
     })
