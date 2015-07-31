@@ -1,24 +1,26 @@
 'use strict';
 
 erEventApp.factory('erEventService',
-    function($resource, $q) {
-        var events = $resource('http://localhost:3000/events');
+  function($resource, $q, $timeout) {
+    var events = $resource('http://localhost:3000/events');
 
-        return {
-            getAll: function() {
-                var deferred = $q.defer();
+    return {
+      getAll: function() {
+        var deferred = $q.defer();
 
-                events.get(
-                    function (events) {
-                        deferred.resolve(events);
-                    },
-                    function (response) {
-                        deferred.reject(response);
-                    }
-                );
-
-                return deferred.promise;
+        $timeout(function() {
+          events.get(
+            function (events) {
+              deferred.resolve(events);
+            },
+            function (response) {
+              deferred.reject(response);
             }
-        };
-    }
+          );
+        }, 5000);
+
+        return deferred.promise;
+      }
+    };
+  }
 );
