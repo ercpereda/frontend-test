@@ -9,7 +9,7 @@ html(ng-app='erEventApp')
     link(rel='stylesheet' href='bower_components/metro/build/css/metro.css')
     link(rel='stylesheet' href='bower_components/metro/build/css/metro-icons.css')
 
-body
+body(class='tile-area-scheme-{{backgroundColor}}')
 
   // JS from Bower Components
   script(src='bower_components/less.js/dist/less-1.6.2.js' data-content=false)
@@ -23,6 +23,7 @@ body
 
   // Main App JS
   script(src='app.js')
+  script(src='directives/er-color-palette-directive.js')
 
   div.app-bar.fixed-top.darcula(data-role='app-bar')
     a.app-bar-element.margin-10.place-right
@@ -31,8 +32,9 @@ body
         span#toggle-tiles-dropdown.mif-paint.mif-2x.ani-hover-float.mif-ani-fast
       div.app-bar-drop-container.place-right(data-role='dropdown' data-toggle-element='#toggle-tiles-dropdown'
             data-no-close='false' style='width: 324px')
-        div.tile-container.bg-white()
-          div.class.tile-small(bg-color='dark')
+        //div.tile-container.bg-white()
+        //  div.class.tile-small(bg-color='dark')
+        er-color-palette(enter='previewBackgroundColor(color)' leave='resetBackgroundColor()' click='changeBackgroundColor(color)')
   div
     div#content.container
       div.row
