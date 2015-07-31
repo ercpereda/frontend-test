@@ -1,11 +1,13 @@
 var erEventApp = angular.module('erEventApp', ['ui.utils','ngRoute','ngAnimate', 'ngResource'])
     .config(function($routeProvider) {
 
-    $routeProvider.when('/home', {
-       templateUrl: '/templates/er-event-list.html',
-       controller: 'erEventListController'
+    $routeProvider.when('/events', {
+       templateUrl: '/templates/er-event-list.html'
     });
-    $routeProvider.otherwise({redirectTo:'/home'});
+    $routeProvider.when('/events/:id', {
+      templateUrl: '/templates/er-event-details.html'
+    });
+    $routeProvider.otherwise({redirectTo:'/events'});
 
     })
     .run(function($rootScope) {
