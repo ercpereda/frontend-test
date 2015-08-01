@@ -1,6 +1,8 @@
 div.tile-wide.bg-crimson(data-role='tile' ng-click='details(event.id)')
   div.tile-content.slide-left-2
     div.slide
-      h3 {{ event.title }}
+      div.image-container.image-format-square(style='width: 100%')
+        div.frame
+          div(style='width: 100%; height: 100%; border-radius: 0px; background-image: url({{event.eventImage}}); background-size: cover; background-repeat: no-repeat;')
     div.slide-over.bg-blue
-      h3 {{ event.title }}
+    div.tile-label {{event.title}}
