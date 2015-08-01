@@ -2,7 +2,7 @@
 
 erEventApp.factory('erEventService',
   function($resource, $q, $timeout) {
-    var events = $resource('http://localhost:3000/events');
+    var events = $resource('http://localhost:3000/events/:id');
 
     return {
       getAll: function() {
@@ -21,7 +21,22 @@ erEventApp.factory('erEventService',
 
         return deferred.promise;
       },
+      getById: function(id) {
+          var deferred = $q.defer();
 
+          $timeout(function () {
+              events.get({id: id},
+                  function(event) {
+                      deferred.resolve(event);
+                  },
+                  function(responce) {
+                      deferred.reject(responce);
+                  }
+              );
+          }, 5000);
+
+          return deferred.promise;
+      },
       addEvent: function(event) {
           var deferred = $q.defer();
 
