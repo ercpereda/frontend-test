@@ -3,7 +3,7 @@ doctype html
 html(ng-app='erEventApp')
   head
     title Hello world
-    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    meta(name='viewport' content='width=device-width, initial-scale=1.0')
     meta(charset='utf-8')
     link(rel='stylesheet' href='bower_components/metro/build/css/metro.css')
     link(rel='stylesheet' href='bower_components/metro/build/css/metro-icons.css')
@@ -14,16 +14,20 @@ body(class='tile-area-scheme-{{backgroundColor}}')
 
   // JS from Bower Components
   script(src='bower_components/less.js/dist/less-1.6.2.js' data-content=false)
-  script(src="bower_components/jquery/jquery.js")
-  script(src="bower_components/metro/build/js/metro.js")
-  script(src="bower_components/angular/angular.js")
-  script(src="bower_components/angular-route/angular-route.js")
-  script(src="bower_components/angular-animate/angular-animate.js")
-  script(src="bower_components/angular-resource/angular-resource.js")
-  script(src="bower_components/angular-ui-utils/ui-utils.js")
+  script(src='bower_components/jquery/jquery.js')
+  script(src='bower_components/moment/min/moment.min.js')
+  script(src='bower_components/metro/build/js/metro.js')
+  script(src='bower_components/angular/angular.js')
+  script(src='bower_components/angular-route/angular-route.js')
+  script(src='bower_components/angular-animate/angular-animate.js')
+  script(src='bower_components/angular-resource/angular-resource.js')
+  script(src='bower_components/angular-ui-utils/ui-utils.js')
 
   // Main App JS
   script(src='app.js')
+
+  // Filters
+  script(src='filters/er-date.js')
 
   // Directives
   script(src='directives/er-color-palette-directive.js')

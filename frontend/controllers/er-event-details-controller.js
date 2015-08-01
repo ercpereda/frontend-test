@@ -13,6 +13,14 @@ erEventApp.controller('erEventDetailsController',
                     if (responce.event) {
                         $scope.showEvent = true;
                         $scope.event = responce.event;
+
+                        var dates = [];
+                        for(var i = 0; i < responce.event.dates.length; i++) {
+                            dates.push(moment(responce.event.dates[i]));
+                        }
+                        $scope.event.dates = dates;
+
+                        $scope.now = moment();
                     }
                 },
                 function(responce) {

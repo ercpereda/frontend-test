@@ -20,16 +20,20 @@ div.flex-grid
         div.row.flex-just-sb
           div.cell.colspan7
             br
-            p {{event.description}}
+            p.align-justify.indent-paragraph {{event.description}}
           div.cell.colspan4
             table.table.hovered
               thead
                 th Date
                 th Time
               tbody
-                tr(ng-repeat='dt in event.dates')
-                  td {{dt}}
-                  td {{dt}}
+                tr(ng-repeat='dt in event.dates | orderBy')
+                  td
+                    s(ng-if='dt < now') {{dt|erGetDate}}
+                    span(ng-if='dt >= now') {{dt|erGetDate}}
+                  td
+                    s(ng-if='dt < now') {{dt|erGetTime}}
+                    span(ng-if='dt >= now') {{dt|erGetTime}}
     div.cell.colspan4
       div.image-container.bordered.handing.ani.image-format-square(ng-show='event.eventImage')
         div.frame
