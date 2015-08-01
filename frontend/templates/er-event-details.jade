@@ -1,2 +1,36 @@
-h1 Hello Events
-
+div.flex-grid
+  div.row
+    div.notify.alert(ng-show='showError' style='margin: auto')
+      span.notify-icon.mif-warning.mif-ani-flash
+      span.notify-title Error
+      span.notify-text Something happen trying to get the event
+    div.notify.info(ng-show='showNoExists' style='margin: auto')
+      span.notify-icon.mif-notification.mif-ani-flash
+      span.notify-title No Exists
+      span.notify-text The event required no exists.
+    div(ng-show='showLoading' style='margin: auto')
+      div(data-role="preloader" data-type="ring" style='margin: auto')
+  div.row.padding20.flex-just-sb(ng-show='showEvent')
+    div.cell.colspan7
+      h1.text-light {{event.title}}
+      hr.fat.bg-white
+      h3.text-light Location: {{event.location}}
+      br
+      div.flex-grid
+        div.row.flex-just-sb
+          div.cell.colspan7
+            br
+            p {{event.description}}
+          div.cell.colspan4
+            table.table.hovered
+              thead
+                th Date
+                th Time
+              tbody
+                tr(ng-repeat='dt in event.dates')
+                  td {{dt}}
+                  td {{dt}}
+    div.cell.colspan4
+      div.image-container.bordered.handing.ani.image-format-square(ng-show='event.eventImage')
+        div.frame
+          img(ng-src='{{event.eventImage}}' data-format='square')
