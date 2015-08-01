@@ -1,7 +1,7 @@
 'use strict';
 
 erEventApp.controller('erNewEventController',
-    function($scope) {
+    function($scope, erEventService) {
         $scope.addDateTime = function (date, time) {
             if (!$scope.event.dates)
                 $scope.event.dates = [];
@@ -10,8 +10,7 @@ erEventApp.controller('erNewEventController',
         };
 
         $scope.save = function (event) {
-            console.log($scope);
-            console.log(event);
+            erEventService.addEvent(event);
         };
     }
 );

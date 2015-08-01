@@ -20,6 +20,21 @@ erEventApp.factory('erEventService',
         }, 5000);
 
         return deferred.promise;
+      },
+
+      addEvent: function(event) {
+          var deferred = $q.defer();
+
+          events.save({event: event},
+            function (event) {
+                deferred.resolve(event)
+            },
+            function (response) {
+                deferred.reject(response);
+            }
+          );
+
+          return deferred.promise;
       }
     };
   }
