@@ -10,9 +10,9 @@ erEventApp
         scope: {
           event: '='
         },
-        controller: function($scope) {
+        controller: function($scope, $location) {
             $scope.details = function (id) {
-                console.log(id);
+                $location.url('/event/' + id);
             }
         }
       }
