@@ -1,4 +1,7 @@
 .DS_Store
 backend/node_modules
+backend/npm-debug.log
 frontend/bower_components
 frontend/node_modules
+frontend/npm-debug.log
+.idea/
