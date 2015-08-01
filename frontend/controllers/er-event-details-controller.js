@@ -21,6 +21,8 @@ erEventApp.controller('erEventDetailsController',
                         $scope.event.dates = dates;
 
                         $scope.now = moment();
+
+                        $scope.stop = moment(new Date(2015, 9, 18)).format();
                     }
                 },
                 function(responce) {

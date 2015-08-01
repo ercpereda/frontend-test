@@ -35,6 +35,13 @@ div.flex-grid
                     s(ng-if='dt < now') {{dt|erGetTime}}
                     span(ng-if='dt >= now') {{dt|erGetTime}}
     div.cell.colspan4
+      div.align-center
+        h3.text-light Countdown to start the event
+        er-event-countdown(stop='{{stop}}' style='font-size: .8rem')
+      br
+      br
+      br
+      br
       div.image-container.bordered.handing.ani.image-format-square(ng-show='event.eventImage')
         div.frame
           img(ng-src='{{event.eventImage}}' data-format='square')
