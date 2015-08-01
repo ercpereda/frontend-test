@@ -1,50 +1,70 @@
 div.flex-grid
-  div.row
-    button.button.cycle-button.success.large-button.block-shadow-success.text-shadow.place-right(ng-click='save(event)')
-      span.mif-floppy-disk
-  div.row
-    div.cell.colspan8.margin10
-      label Event name
-      div.input-control.text.big-input.full-size(data-role='input')
-        input(type='text' placeholder='Event name' ng-model='event.title')
-        //button.button.helper-button.clear
-        //  span.mif-cross
-      label Event description
-      div.input-control.textarea.full-size
-        textarea(placeholder='Event description' style='height: 200px' ng-model='event.description')
-      label Event location
-      div.input-control.text.full-size(data-role='input')
-        input(type='text' placeholder='Event location' ng-model='event.location')
-      hr.thin.bg-white
-      div.row.cell-auto-size
-        div.cell
-          div.input-control.text(data-role='datepicker' data-format='mm/dd/yyyy')
-            input(type='text' readonly='readonly' placeholder='Date' ng-model='date')
-            button.button
-              span.mif-calendar
-        div.cell
-          div.input-control.text(data-role='input')
-            input(type='text' placeholder='Time' ng-model='time')
-        div.cell
-          button.button.success(ng-click='addDateTime(date, time)')
-            span.mif-plus
-        div.cell
-          button.button.danger
-            span.mif-minus
-      div.row
-        table.table.hovered
-          thead
-            th Date
-            th Time
-          tbody
-            tr(ng-repeat='dt in event.dates')
-              td {{dt.date}}
-              td {{dt.time}}
-    div.cell.colspan4.margin10
-      div.image-container.bordered.handing.ani.image-format-square(ng-show='event.eventImage')
-        div.frame
-          img(ng-src='{{event.eventImage}}'
-              data-format='square')
-      label Event image url
-      div.input-control.text.full-size(data-role='input')
-        input(type='text' placeholder='Image url' ng-model='event.eventImage')
+  form(name='eventForm' novalidate data-role='validator' data-show-required-state="false" data-hint-position='top'
+        data-hint-background="bg-red" data-hint-color="fg-white" data-hide-error="10000")
+    div.row
+      div.notify.alert(ng-show='showError' style='margin: auto')
+        span.notify-icon.mif-warning
+        span.notify-title Error
+        span.notify-text Something happen trying to create the event
+      div.notify.success(ng-show='showSuccess' style='margin: auto')
+        span.notify-icon.mif-checkmark
+        span.notify-title Success
+        span.notify-text The event was saved successfully
+    div.row
+      button.button.cycle-button.success.large-button.block-shadow-success.text-shadow.place-right(
+            ng-click='save(event)')
+        span.mif-floppy-disk
+    div.row
+      div.cell.colspan8.margin10
+        label Event name
+        div.input-control.text.big-input.full-size(data-role='input')
+          input(type='text' placeholder='Event name' ng-required="true" ng-model='event.title' data-validate-func="required" data-validate-hint="This field can not be empty!")
+          span.input-state-error.mif-warning
+          span.input-state-success.mif-checkmark
+          //button.button.helper-button.clear
+          //  span.mif-cross
+        label Event description
+        div.input-control.textarea.full-size
+          textarea(placeholder='Event description' ng-required="true" style='height: 200px' ng-model='event.description' data-validate-func="required" data-validate-hint="This field can not be empty!")
+          span.input-state-error.mif-warning
+          span.input-state-success.mif-checkmark
+        label Event location
+        div.input-control.text.full-size(data-role='input')
+          input(type='text' placeholder='Event location' ng-required="true" ng-model='event.location' data-validate-func="required" data-validate-hint="This field can not be empty!")
+          span.input-state-error.mif-warning
+          span.input-state-success.mif-checkmark
+        hr.thin.bg-white
+        div.row.cell-auto-size
+          div.cell
+            div.input-control.text(data-role='datepicker' data-format='mm/dd/yyyy')
+              input(type='text' readonly='readonly' placeholder='Date' ng-model='date')
+              button.button
+                span.mif-calendar
+          div.cell
+            div.input-control.text(data-role='input')
+              input(type='text' placeholder='Time' ng-model='time')
+          div.cell
+            button.button.success(ng-click='addDateTime(date, time)')
+              span.mif-plus
+          div.cell
+            button.button.danger
+              span.mif-minus
+        div.row
+          table.table.hovered
+            thead
+              th Date
+              th Time
+            tbody
+              tr(ng-repeat='dt in event.dates')
+                td {{dt.date}}
+                td {{dt.time}}
+      div.cell.colspan4.margin10
+        div.image-container.bordered.handing.ani.image-format-square(ng-show='event.eventImage')
+          div.frame
+            img(ng-src='{{event.eventImage}}'
+                data-format='square')
+        label Event image url
+        div.input-control.text.full-size(data-role='input')
+          input(type='text' placeholder='Image url' ng-required="true" ng-model='event.eventImage' data-validate-func="required" data-validate-hint="This field can not be empty!")
+          span.input-state-error.mif-warning
+          span.input-state-success.mif-checkmark

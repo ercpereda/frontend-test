@@ -10,7 +10,19 @@ erEventApp.controller('erNewEventController',
         };
 
         $scope.save = function (event) {
-            erEventService.addEvent(event);
+            if ($scope.eventForm.$valid) {
+                erEventService.addEvent(event)
+                    .then(
+                        function () {
+                            $scope.showSuccess = true;
+                            $scope.showError = false;
+                        },
+                        function () {
+                            $scope.showSuccess = false;
+                            $scope.showError = true;
+                        }
+                    );
+            }
         };
     }
 );
