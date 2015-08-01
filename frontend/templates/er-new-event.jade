@@ -1,2 +1,16 @@
-h1 {{message}}
-
+div.flex-grid
+  div.row
+    div.cell.colspan8.margin10
+      div.input-control.text.big-input.full-size(data-role='input')
+        input(type='text' placeholder='Event name')
+        //button.button.helper-button.clear
+        //  span.mif-cross
+      div.input-control.textarea.full-size
+        textarea(placeholder='Event description' style='height: 300px')
+    div.cell.colspan4.margin10
+      div.image-container.bordered.handing.ani.image-format-square(ng-show='imageUrl')
+        div.frame
+          img(ng-src='{{imageUrl}}'
+              data-format='square')
+      div.input-control.text.full-size(data-role='input')
+        input(type='text' placeholder='Image url' ng-model='imageUrl')

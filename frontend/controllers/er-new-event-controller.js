@@ -2,6 +2,6 @@
 
 erEventApp.controller('erNewEventController',
     function($scope) {
-        $scope.message = 'Hello World!!!!';
+        $scope.imageUrl = '';
     }
 );
