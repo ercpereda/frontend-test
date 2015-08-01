@@ -5,10 +5,10 @@ html(ng-app='erEventApp')
     title Hello world
     meta(name="viewport" content="width=device-width, initial-scale=1.0")
     meta(charset='utf-8')
-    link(href='app.less' type='text/css' rel='stylesheet/less')
     link(rel='stylesheet' href='bower_components/metro/build/css/metro.css')
     link(rel='stylesheet' href='bower_components/metro/build/css/metro-icons.css')
     link(rel='stylesheet' href='bower_components/metro/build/css/metro-schemes.css')
+    link(href='app.less' type='text/css' rel='stylesheet/less')
 
 body(class='tile-area-scheme-{{backgroundColor}}')
 
@@ -38,18 +38,24 @@ body(class='tile-area-scheme-{{backgroundColor}}')
   script(src='controllers/er-event-list-controller.js')
   script(src='controllers/er-remote-tile-container-controller.js')
   script(src='controllers/er-event-details-controller.js')
+  script(src='controllers/er-new-event-controller.js')
 
   header.app-bar.fixed-top.nave(data-role='app-bar')
-    a.app-bar-element(ng-show='false')
+    a.app-bar-element(ng-show='showBackMenuOption')
       span(data-role='hint' data-hint-background='bg-green' data-hint-color='fg-white'
               data-hint-position='right' data-hint='Go | back')
-        span.mif-arrow-left.mif-3x
-    div.app-bar-divider(ng-show='false')
+        span.mif-arrow-left.mif-2x
+    div.app-bar-divider(ng-show='showBackMenuOption')
     a.app-bar-element.branding Events
+    div.app-bar-divider
+    a.app-bar-element(ng-href='#/event/new')
+      span(data-role='hint' data-hint-background='bg-green' data-hint-color='fg-white'
+            data-hint-position='right' data-hint='Create | new event')
+        span.mif-plus.mif-2x.ani-hover-shuttle
     a.app-bar-element.place-right
       span(data-role='hint' data-hint-background='bg-green' data-hint-color='fg-white'
             data-hint-position='left' data-hint='Change | background color')
-        span#color-palette-dropdown.mif-paint.mif-3x.ani-hover-float.mif-ani-fast
+        span#color-palette-dropdown.mif-paint.mif-2x.ani-hover-float.mif-ani-fast
       div.app-bar-drop-container.place-right(data-role='dropdown' data-toggle-element='#color-palette-dropdown'
             data-no-close='false' style='width: 324px')
         er-color-palette(enter='previewBackgroundColor(color)' leave='resetBackgroundColor()' click='changeBackgroundColor(color)')

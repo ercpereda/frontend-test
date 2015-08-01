@@ -4,15 +4,22 @@ var erEventApp = angular.module('erEventApp', ['ui.utils','ngRoute','ngAnimate',
     $routeProvider.when('/events', {
        templateUrl: '/templates/er-event-list.html'
     });
+    $routeProvider.when('/event/new', {
+      templateUrl: '/templates/er-new-event.html',
+      controller: 'erNewEventController'
+    });
     $routeProvider.when('/event/:id', {
       templateUrl: '/templates/er-event-details.html',
       controller: 'erEventDetailsController'
     });
+
     $routeProvider.otherwise({redirectTo:'/events'});
 
     })
     .run(function($rootScope) {
         $rootScope.backgroundColor = localStorage.backgroundColor || 'dark';
+
+        var showBackMenuOption = false;
 
         var _tempBackgroundColor = 'dark';
         $rootScope.previewBackgroundColor = function (color) {
