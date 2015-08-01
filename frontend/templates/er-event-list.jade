@@ -1,11 +1,11 @@
 div.flex-grid
   div.row.padding20
-    div.cell.colspan8(ng-controller='erRemoteTileContainerController')
+    div.cell.colspan8(ng-controller='erEventListController')
       er-remote-tile-container(
             show-elements='showElements', show-error='showError', show-no-element='showNoElement',
             show-loading='showLoading', elements='elements')
         er-event(ng-repeat='event in elements' event='event')
-    div.cell.colspan4(ng-controller='erRemoteTileContainerController')
+    div.cell.colspan4(ng-controller='erEventHighlightedListController')
       h1.text-light
         span.mif-event-available.mif-2x Today's Highlight
       hr.fat.bg-white
