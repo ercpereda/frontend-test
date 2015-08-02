@@ -7,8 +7,9 @@ div.tile-large.bg-steel.fb-white(data-role='tile' ng-click='details(event.id)')
     div.slide-over.bg-darcula.text-small.padding10
       div.align-center
         h5.text-light Countdown to start the event
-        div.countdown.labels-top(data-role='countdown' data-background-color='bg-red'
-                data-minutes=2 data-label-color='fg-white' style='font-size: .6rem')
+        //div.countdown.labels-top(data-role='countdown' data-background-color='bg-red'
+        //        data-minutes=61 data-label-color='fg-white' style='font-size: .6rem')
+        er-event-countdown(ng-if='stop' data-stop='{{stop}}' style='font-size: .8rem')
         hr.bg-white
         h6.text-light(ng-if='date') {{date|erFormat:'MMM D, YYYY @ LT'}}
         h6.text-light(ng-if='!date') The event past away.

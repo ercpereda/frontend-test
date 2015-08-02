@@ -1,7 +1,7 @@
 'use strict';
 
 erEventApp.controller('erEventDetailsController',
-    function($scope, $routeParams, erEventService) {
+    function($scope, $routeParams, erEventService, erDateUtilsService) {
         $scope.setShowBackMenuOption(true);
         $scope.showLoading = true;
         erEventService.getById($routeParams.id)
@@ -23,7 +23,11 @@ erEventApp.controller('erEventDetailsController',
 
                         $scope.now = moment();
 
-                        $scope.stop = moment(new Date(2015, 9, 18)).format();
+                        $scope.date = erDateUtilsService.getEventNextDate($scope.event.dates);
+
+                        //var duration = moment.duration($scope.date.diff($scope.now));
+
+                        $scope.stop = $scope.date ? $scope.date.format('MM/DD/YYYY HH:mm') : $scope.now.format('MM/DD/YYYY HH:mm');
                     }
                 },
                 function(responce) {

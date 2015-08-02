@@ -37,7 +37,7 @@ div.flex-grid
     div.cell.colspan4
       div.align-center
         h3.text-light Countdown to start the event
-        er-event-countdown(stop='{{stop}}' style='font-size: .8rem')
+        er-event-countdown(ng-if='stop' data-stop='{{stop}}' style='font-size: .8rem')
       br
       br
       br

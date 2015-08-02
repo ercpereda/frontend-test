@@ -15,6 +15,7 @@ erEventApp
                 $location.url('/event/' + id);
             };
             $scope.date = erDateUtilsService.getEventNextDate($scope.event.dates);
+            $scope.stop = $scope.date ? $scope.date.format('MM/DD/YYYY HH:mm') : moment().format('MM/DD/YYYY HH:mm');
         }
       }
     }
