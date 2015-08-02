@@ -11,6 +11,7 @@ erEventApp.controller('erEventListController',
         $scope.showLoading = false;
         if (responce.events) {
           $scope.showElements = true;
+
         }
         else {
           $scope.showNoElements = true;

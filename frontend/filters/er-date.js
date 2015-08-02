@@ -15,4 +15,9 @@ erEventApp
         return function(input) {
             return input
         }
+    })
+    .filter('erFormat', function() {
+        return function(input, format) {
+            return input.format(format);
+        }
     });

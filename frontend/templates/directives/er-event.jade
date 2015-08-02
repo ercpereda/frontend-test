@@ -10,6 +10,9 @@ div.tile-large.bg-steel.fb-white(data-role='tile' ng-click='details(event.id)')
         div.countdown.labels-top(data-role='countdown' data-background-color='bg-red'
                 data-minutes=2 data-label-color='fg-white' style='font-size: .6rem')
         hr.bg-white
+        h6.text-light(ng-if='date') {{date|erFormat:'MMM D, YYYY @ LT'}}
+        h6.text-light(ng-if='!date') The event past away.
+        hr.bg-white
         h6.text-light Abstract:
         p.align-justify.indent-paragraph {{event.description|erAbstract:250}}
     div.tile-label {{event.title}}
