@@ -1,4 +1,4 @@
-var erEventApp = angular.module('erEventApp', ['ui.utils','ngRoute','ngAnimate', 'ngResource'])
+var erEventApp = angular.module('erEventApp', ['ui.utils','ngRoute','ngAnimate', 'ngResource', 'djds4rce.angular-socialshare'])
     .config(function($routeProvider, $locationProvider) {
 
     $routeProvider.when('/events', {
