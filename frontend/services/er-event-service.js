@@ -1,7 +1,7 @@
 'use strict';
 
 erEventApp.factory('erEventService',
-  function($resource, $q, $timeout) {
+  function($resource, $q, $timeout, erDateUtilsService) {
     var events = $resource('http://localhost:3000/events/:id');
     var highlighteds = $resource('http://localhost:3000/events/featured')
 
@@ -12,6 +12,11 @@ erEventApp.factory('erEventService',
         $timeout(function() {
           events.get(
             function (events) {
+
+              for(var i = 0; i < events.events.length; i++) {
+                events.events[i].date = erDateUtilsService.getEventNextDate(events.events[i].dates);
+              }
+
               deferred.resolve(events);
             },
             function (response) {
@@ -27,6 +32,9 @@ erEventApp.factory('erEventService',
         $timeout(function() {
             highlighteds.get(
                 function (events) {
+                    for(var i = 0; i < events.events.length; i++) {
+                        events.events[i].date = erDateUtilsService.getEventNextDate(events.events[i].dates);
+                    }
                     deferred.resolve(events);
                 },
                 function (response) {

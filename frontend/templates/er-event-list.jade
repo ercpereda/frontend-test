@@ -4,7 +4,7 @@ div.flex-grid
       er-remote-tile-container(
             show-elements='showElements', show-error='showError', show-no-element='showNoElement',
             show-loading='showLoading', elements='elements')
-        er-event(ng-repeat='event in elements' event='event')
+        er-event(ng-repeat='event in ordered' event='event')
     div.cell.colspan4(ng-controller='erEventHighlightedListController')
       h1.text-light
         span.mif-event-available.mif-2x Today's Highlight
@@ -12,4 +12,4 @@ div.flex-grid
       er-remote-tile-container(
             show-elements='showElements', show-error='showError', show-no-element='showNoElement',
             show-loading='showLoading', elements='elements')
-        er-highlight(ng-repeat='event in elements' event='event')
+        er-highlight(ng-repeat='event in ordered' event='event')
