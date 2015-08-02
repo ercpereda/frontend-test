@@ -13,8 +13,8 @@ bower install
 
 ## Ejecución
 
-...shell
+```shell
 npm start
-...
+```
 
 Acceder con el navegador a la dirección http://localhost:9001/
