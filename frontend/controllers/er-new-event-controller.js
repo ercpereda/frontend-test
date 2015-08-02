@@ -9,7 +9,12 @@ erEventApp.controller('erNewEventController',
                 $scope.event.dates = [];
             if (!$scope.dates)
                 $scope.dates = [];
-            if(!moment(date + ' ' + time).isValid) {
+            if (!date) {
+                date = moment().format('MM/DD/YYYY');
+                console.log(date + ' ' + time);
+                console.log(moment(date + ' ' + time).isValid());
+            }
+            if(!moment(date + ' ' + time).isValid()) {
                 time = '00:00';
             }
             $scope.dates.push({date: date, time: time, selected: false});
