@@ -1,6 +1,14 @@
 {
-  "name": "frontend",
-  "version": "0.0.0",
+  "name": "ingsw-frontend-test",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "grunt serve --force"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ercpereda/frontend-test.git"
+  },
+  "author": "Ernesto Rafael Cruz Pereda <ercp42@gmail.com>",
   "devDependencies": {
     "grunt": "~0.4",
     "grunt-angular-templates": "~0.5",
