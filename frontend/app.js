@@ -1,5 +1,5 @@
 var erEventApp = angular.module('erEventApp', ['ui.utils','ngRoute','ngAnimate', 'ngResource'])
-    .config(function($routeProvider) {
+    .config(function($routeProvider, $locationProvider) {
 
     $routeProvider.when('/events', {
        templateUrl: '/templates/er-event-list.html'
@@ -15,6 +15,7 @@ var erEventApp = angular.module('erEventApp', ['ui.utils','ngRoute','ngAnimate',
 
     $routeProvider.otherwise({redirectTo:'/events'});
 
+    $locationProvider.html5Mode(true).hashPrefix('!');
     })
     .run(function($rootScope) {
         $rootScope.backgroundColor = localStorage.backgroundColor || 'dark';
