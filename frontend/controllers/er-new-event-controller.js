@@ -2,6 +2,7 @@
 
 erEventApp.controller('erNewEventController',
     function($scope, erEventService) {
+        $scope.setShowBackMenuOption(true);
         $scope.event = {};
         $scope.addDateTime = function (date, time) {
             if (!$scope.event.dates)

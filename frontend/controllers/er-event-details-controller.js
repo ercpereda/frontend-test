@@ -2,6 +2,7 @@
 
 erEventApp.controller('erEventDetailsController',
     function($scope, $routeParams, erEventService) {
+        $scope.setShowBackMenuOption(true);
         $scope.showLoading = true;
         erEventService.getById($routeParams.id)
             .then(

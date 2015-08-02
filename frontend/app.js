@@ -20,7 +20,10 @@ var erEventApp = angular.module('erEventApp', ['ui.utils','ngRoute','ngAnimate',
     .run(function($rootScope) {
         $rootScope.backgroundColor = localStorage.backgroundColor || 'dark';
 
-        var showBackMenuOption = false;
+        $rootScope.showBackMenuOption = false;
+        $rootScope.setShowBackMenuOption = function (show) {
+            $rootScope.showBackMenuOption = show;
+        };
 
         var _tempBackgroundColor = 'dark';
         $rootScope.previewBackgroundColor = function (color) {

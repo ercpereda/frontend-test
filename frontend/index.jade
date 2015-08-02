@@ -50,17 +50,22 @@ body(class='tile-area-scheme-{{backgroundColor}}')
   script(src='controllers/er-new-event-controller.js')
 
   header.app-bar.fixed-top.nave(data-role='app-bar')
-    a.app-bar-element(ng-show='showBackMenuOption')
+    a.app-bar-element(ng-show='showBackMenuOption' ng-href='/events')
       span(data-role='hint' data-hint-background='bg-green' data-hint-color='fg-white'
               data-hint-position='right' data-hint='Go | back')
         span.mif-arrow-left.mif-2x
     div.app-bar-divider(ng-show='showBackMenuOption')
-    a.app-bar-element.branding(ng-href='/events') Events
+    a.app-bar-element.branding(ng-href='/events')
+      span(data-role='hint' data-hint-background='bg-green' data-hint-color='fg-white'
+        data-hint-position='right' data-hint='Go | events board')
+        span  Events
     div.app-bar-divider
     a.app-bar-element(ng-href='/event/new')
       span(data-role='hint' data-hint-background='bg-green' data-hint-color='fg-white'
             data-hint-position='right' data-hint='Create | new event')
         span.mif-plus.mif-2x.ani-hover-shuttle
+    div.app-bar-divider
+    div.app-bar-divider.place-right
     a.app-bar-element.place-right
       span(data-role='hint' data-hint-background='bg-green' data-hint-color='fg-white'
             data-hint-position='left' data-hint='Change | background color')
