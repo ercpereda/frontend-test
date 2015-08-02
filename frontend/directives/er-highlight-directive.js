@@ -10,10 +10,11 @@ erEventApp
         scope: {
           event: '='
         },
-        controller: function($scope, $location) {
+        controller: function($scope, $location, erDateUtilsService) {
             $scope.details = function (id) {
                 $location.url('/event/' + id);
-            }
+            };
+            $scope.date = erDateUtilsService.getEventNextDate($scope.event.dates);
         }
       }
     }
