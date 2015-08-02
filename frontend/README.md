@@ -6,7 +6,7 @@ Se utilizó AngularJS para la implementación de la aplicación.
 
 ```shell
 git clone https://github.com/ercpereda/frontend-test.git
-cd frontend
+cd frontend-test/frontend
 npm install
 bower install
 ```
