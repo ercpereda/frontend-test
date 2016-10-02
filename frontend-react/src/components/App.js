@@ -28,6 +28,7 @@ class App extends Component {
             <div>
               <Match exactly pattern="/" render={(matchProps) => <Events events={this.state.events} {...matchProps} />} />
               <Match pattern="/events/:eventId" render={(matchProps) => <EventDetails events={this.state.events} {...matchProps} />} />
+              <Match exactly pattern="/not-found" component={NotFound} />
               <Miss component={NotFound} />
             </div>
           </BrowserRouter>

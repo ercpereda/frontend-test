@@ -1,7 +1,15 @@
 import React from 'react';
+import { Redirect } from 'react-router';
 
 const EventDetails = (props) => {
-  const event = props.events.filter((e) => e.id.toString() === props.params.eventId)[0];
+  let event = props.events.filter((e) => e.id.toString() === props.params.eventId);
+  console.log(event);
+
+  if (event.length === 0) {
+    return <Redirect to="/not-found" />
+  }
+
+  event = event[0]; 
 
   return (
     <div>
