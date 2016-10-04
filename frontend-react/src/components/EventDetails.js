@@ -1,5 +1,5 @@
 import React from 'react';
-import { Redirect } from 'react-router';
+import { Redirect, Link } from 'react-router';
 
 const EventDetails = (props) => {
   let event = props.events.filter((e) => e.id.toString() === props.params.eventId);
@@ -14,6 +14,7 @@ const EventDetails = (props) => {
   return (
     <div>
       <h1>Event Details</h1>
+      <Link to={`/edit-event/${event.id}`}>Edit</Link>
       <h6>{event.id}</h6>
       <h2><a href={`/events/${event.id}`}>{event.title}</a></h2>
       <img src={event.eventImage} alt={`event ${event.title}`} />
