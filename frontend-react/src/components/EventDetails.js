@@ -3,7 +3,6 @@ import { Redirect, Link } from 'react-router';
 
 const EventDetails = (props) => {
   let event = props.events.filter((e) => e.id.toString() === props.params.eventId);
-  console.log(event);
 
   if (event.length === 0) {
     return <Redirect to="/not-found" />
@@ -25,6 +24,10 @@ const EventDetails = (props) => {
       </ul>
     </div>
   );
+};
+
+EventDetails.propTypes = {
+  events: React.PropTypes.arrayOf(React.PropTypes.object)
 };
 
 export default EventDetails;

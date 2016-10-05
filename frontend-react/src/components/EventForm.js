@@ -27,28 +27,34 @@ class EventForm extends Component {
 
   render() {
     const { event } = this.props;
+    const Form = (
+      <form onSubmit={this.createEvent} ref={(form) => { this.eventForm = form }}>
+        <h1>Event Form</h1>
+        <input name="title" type="text" placeholder="title" 
+          defaultValue={event && event.title} ref={(input) => { this.titleInput = input }} 
+        />
+        <input name="eventImage" type="text" placeholder="image" 
+          defaultValue={event && event.eventImage} ref={(input) => { this.imgInput = input }} 
+        />
+        <input name="location" type="text" placeholder="location" 
+          defaultValue={event && event.location} ref={(input) => { this.locationInput = input }} 
+        />
+        <textarea name="description" placeholder="description" 
+          defaultValue={event && event.description} ref={(textarea) => { this.descriptionTextA = textarea }}>
+        </textarea>
+        <input name="date" type="text" placeholder="date" 
+          defaultValue={event && event.dates[0]} ref={(input) => { this.dateInput = input }} 
+        />
+        <button type="submit">{event ? 'Edit' : 'Create'}</button>
+      </form>
+    );
+    const Error = (
+      <h1 style={{ color: 'red' }}>{this.props.error}</h1>
+    );
     return (
       <div>
         <Link to='/'>Go Back</Link>
-        <form onSubmit={this.createEvent} ref={(form) => { this.eventForm = form }}>
-          <h1>Event Form</h1>
-          <input name="title" type="text" placeholder="title" 
-            defaultValue={event && event.title} ref={(input) => { this.titleInput = input }} 
-          />
-          <input name="eventImage" type="text" placeholder="image" 
-            defaultValue={event && event.eventImage} ref={(input) => { this.imgInput = input }} 
-          />
-          <input name="location" type="text" placeholder="location" 
-            defaultValue={event && event.location} ref={(input) => { this.locationInput = input }} 
-          />
-          <textarea name="description" placeholder="description" 
-            defaultValue={event && event.description} ref={(textarea) => { this.descriptionTextA = textarea }}>
-          </textarea>
-          <input name="date" type="text" placeholder="date" 
-            defaultValue={event && event.dates[0]} ref={(input) => { this.dateInput = input }} 
-          />
-          <button type="submit">{event ? 'Edit' : 'Create'}</button>
-        </form>
+        {this.props.error ? Error : Form}
       </div>
     );
   }
@@ -56,7 +62,8 @@ class EventForm extends Component {
 
 EventForm.propTypes = {
   onSubmit: React.PropTypes.func,
-  event: React.PropTypes.object
+  event: React.PropTypes.object,
+  error: React.PropTypes.string
 }
 
 export default EventForm;

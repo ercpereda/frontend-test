@@ -7,7 +7,7 @@ const Event = (props) => {
     <div>
       <h6>{event.id}</h6>
       <h2><a href={`/events/${event.id}`}>{event.title}</a></h2>
-      <img src={event.eventImage} alt={`event ${props.event.title}`} />
+      <img src={event.eventImage} alt={`event ${event.title}`} />
       <p>{event.description}</p>
       <h3>{event.location}</h3>
       <ul>
@@ -15,6 +15,10 @@ const Event = (props) => {
       </ul>
     </div>
   );
+};
+
+Event.propTypes = {
+  event: React.PropTypes.object
 };
 
 export default Event;
